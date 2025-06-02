@@ -1,5 +1,0 @@
--I../../include
--std=c99
--Wall
--Wextra
--pedantic
