@@ -202,20 +202,14 @@ void args_parse(int argc, char *argv[], Args *args) {
   };
 }
 
-// int main(int argc, char *argv[]) {
-int main(void) {
+int main(int argc, char *argv[]) {
   FILE *drs = NULL, *out_file = NULL;
   DrsHeader *header = NULL;
   DrsTable *table_array = NULL;
   DrsFileInfo *file_info_array = NULL;
 
   Args args;
-  // TODO: remove
-  // args_parse(argc, argv, &args);
-  args = (Args) {
-    .drs_file = "sounds.drs",
-    .out_dir = "out",
-  };
+  args_parse(argc, argv, &args);
   if (args.drs_file == NULL) {
     goto error;
   }
