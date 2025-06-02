@@ -1,7 +1,8 @@
 
-# DRS Builder
+# DRS Builder - Age of Empires
 
-This small util extract all files stored in a DRS archive into a folder.
+Age of Empires uses a custom file format to store assets called DRS. This small
+util extract all files stored in a DRS archive into a folder.
 
 Documentation regarding the DRS format can be found here:
 - https://github.com/SFTtech/openage/blob/master/doc/media/drs-files.md
@@ -10,4 +11,4 @@ Documentation regarding the DRS format can be found here:
 
 # Synopsis
 
-`drsb *in.drs* -o *out*`
+`drsb DRS_FILE -o OUT_DIR`
