@@ -7,8 +7,13 @@
 #include <assert.h>
 #include <errno.h>
 
-// required to use strnlen
-#define _POSIX_C_SOURCE 200809L
+#ifndef strnlen
+size_t strnlen(const char *s, size_t maxlen) {
+  size_t i;
+  for (i = 0; s[i] != '\0' && i < maxlen; ++i);
+  return i;
+}
+#endif
 
 #ifdef _WIN32
 #define PATH_SEPARATOR '\\'
