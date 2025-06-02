@@ -7,6 +7,9 @@
 #include <assert.h>
 #include <errno.h>
 
+// required to use strnlen
+#define _POSIX_C_SOURCE 200809L
+
 #ifdef _WIN32
 #define PATH_SEPARATOR '\\'
 #else

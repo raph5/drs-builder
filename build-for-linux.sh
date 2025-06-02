@@ -1,3 +1,3 @@
 #!/bin/sh
 
-make build CC=gcc BIN=drsb_linux
+make build BIN=drsb_linux
