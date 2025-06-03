@@ -127,7 +127,7 @@ DrsFileInfo *drs_read_file_info_array(FILE *drs, uint32_t file_count, uint32_t f
 }
 
 #define OUT_FILE_NAME_MAX_LEN 64
-int generate_out_file_name(DrsTable *table, DrsFileInfo *file_info, int table_idx, char *name) {
+int generate_out_file_name(DrsTable *table, DrsFileInfo *file_info, char *name) {
   char extension[5] = {0};
   for (size_t i = 0; i < 4; ++i) {
     if (table->file_extension[3-i] != ' ') {
@@ -135,7 +135,7 @@ int generate_out_file_name(DrsTable *table, DrsFileInfo *file_info, int table_id
     }
   }
 
-  int len = snprintf(name, OUT_FILE_NAME_MAX_LEN+1, "T%dF%d.%s", table_idx, file_info->file_id, extension);
+  int len = snprintf(name, OUT_FILE_NAME_MAX_LEN+1, "%d.%s", file_info->file_id, extension);
   if (len >= OUT_FILE_NAME_MAX_LEN+1) {
     printf("generate_out_file_name snprintf error\n");
     return -1;
@@ -248,7 +248,7 @@ int main(int argc, char *argv[]) {
       size_t out_dir_len = strnlen(args.out_dir, OUT_DIR_MAX_LEN+1);
       memcpy(out_file_name, args.out_dir, out_dir_len);
       out_file_name[out_dir_len] = PATH_SEPARATOR;
-      int err = generate_out_file_name(table, file_info, i, out_file_name + out_dir_len + 1);
+      int err = generate_out_file_name(table, file_info, out_file_name + out_dir_len + 1);
       if (err) {
         goto error;
       }
