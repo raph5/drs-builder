@@ -171,7 +171,7 @@ void args_parse(int argc, char *argv[], Args *args) {
   if (argc != 4) {
     printf("got %d arguments, want 3\n\n"
            "SYNOPSIS\n"
-           "    drsb DRS_FILE -o OUT_DIR\n", argc);
+           "    drsb DRS_FILE -o OUT_DIR\n", argc-1);
     *args = (Args) {0};
     return;
   }

@@ -9,3 +9,6 @@ build: main.c
 
 dev: main.c
 	$(CC) $(TARGET) $(CFLAGS) -g main.c -o $(BIN)
+
+clean:
+	rm $(BIN)
